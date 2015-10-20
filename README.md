@@ -1,7 +1,6 @@
-== README
+## Bloccit: a Reddit replica to teach the fundamentals of web development and Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Made with my mentor at [Bloc](http://bloc.io).
 
 Things you may want to cover:
 
