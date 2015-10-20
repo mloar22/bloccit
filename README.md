@@ -4,6 +4,10 @@ Made with my mentor at [Bloc](http://bloc.io).
 
 Things you may want to cover:
 
+
+Heroku app name bloc-cit
+
+
 * Ruby version
 
 * System dependencies
