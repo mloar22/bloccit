@@ -17,6 +17,9 @@ require 'faker'
    )
  end
 
+p = Post.find_or_create_by(title: "This is a unique title.", body: "This is a unique body.")
+Comment.find_or_create_by(body: "this is a unique comment.", post: p)
+
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
