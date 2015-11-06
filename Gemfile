@@ -46,4 +46,5 @@ group :development do
   gem 'faker'
   gem 'pry-rails'
   gem 'bootstrap-sass'
+  gem 'figaro', '1.0'
 end
