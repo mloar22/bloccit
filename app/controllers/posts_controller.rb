@@ -1,10 +1,9 @@
 class PostsController < ApplicationController
-  before_action :flash_attack
-  # http://guides.rubyonrails.org/action_controller_overview.html#filters
-  #This is the web site that i was following to understand
+  include Pundit
 
   def index
     @posts = Post.all
+     authorize @posts
   end
 
   def show
@@ -13,9 +12,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post
   end
   def create
     @post = Post.new(params.require(:post).permit(:title, :body))
+    @post.user = current_user
+     authorize @post
      if @post.save
        flash[:notice] = "Post was saved."
        redirect_to @post
@@ -26,9 +28,11 @@ class PostsController < ApplicationController
   end
   def edit
     @post = Post.find(params[:id])
+    authorize @post
   end
   def update
      @post = Post.find(params[:id])
+     authorize @post
      if @post.update_attributes(params.require(:post).permit(:title, :body))
        flash[:notice] = "Post was updated."
        redirect_to @post
@@ -39,9 +43,7 @@ class PostsController < ApplicationController
    end
 
 
-   private
 
-   def flash_attack
-     flash[:notice] = "There is always money in the banana stand."
-   end
+
+
 end

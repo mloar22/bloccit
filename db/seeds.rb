@@ -34,12 +34,34 @@ require 'faker'
 p = Post.find_or_create_by(title: "This is a unique title.", body: "This is a unique body.")
 Comment.find_or_create_by(body: "this is a unique comment.", post: p)
 
-user = User.first
- user.skip_reconfirmation!
- user.update_attributes!(
-   email: 'youremail@example.com',
-   password: 'helloworld'
- )
+# Create an admin user
+admin = User.new(
+  name:     'Admin User',
+  email:    'admin@example.com',
+  password: 'helloworld',
+  role:     'admin'
+)
+admin.skip_confirmation!
+admin.save!
+
+# Create a moderator
+moderator = User.new(
+  name:     'Moderator User',
+  email:    'moderator@example.com',
+  password: 'helloworld',
+  role:     'moderator'
+)
+moderator.skip_confirmation!
+moderator.save!
+
+# Create a member
+member = User.new(
+  name:     'Member User',
+  email:    'member@example.com',
+  password: 'helloworld'
+)
+member.skip_confirmation!
+member.save!
 
  puts "Seed finished"
  puts "#{User.count} users created"
