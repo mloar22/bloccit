@@ -10,7 +10,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  # http://bloccit.herokuapp.com
+  # http://bloccit-themitchedition.herokuapp.com
     config.action_mailer.default_url_options = { host: 'bloccit-themitchedition.herokuapp.com' }
 
   # Full error reports are disabled and caching is turned on.
