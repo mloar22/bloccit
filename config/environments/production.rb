@@ -11,7 +11,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # http://bloccit.herokuapp.com
-    config.action_mailer.default_url_options = { host: 'bloccit.herokuapp.com' }
+    config.action_mailer.default_url_options = { host: 'bloccit-themitchedition.herokuapp.com' }
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
