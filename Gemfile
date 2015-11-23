@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.4'
+gem 'devise'
+
 group :production do
    gem 'pg'
    gem 'rails_12factor'
@@ -7,7 +9,7 @@ group :production do
 
  group :development do
    gem 'sqlite3'
-   gem'quiet_assets'
+   gem 'quiet_assets'
  end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -40,14 +42,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
-group :development do
+# group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'devise'
   gem 'faker'
   gem 'pry-rails'
   gem 'bootstrap-sass'
   gem 'figaro', '1.0'
   gem 'pundit'
-  
-end
+# end
