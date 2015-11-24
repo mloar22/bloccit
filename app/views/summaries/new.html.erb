@@ -1,0 +1,20 @@
+<!-- This is where I am going to build a form for a new summary.
+
+
+(1)  Pretty much look at posts/new.html.erb and try to copy it
+over and adapt it for summaries/new.
+(2) You will also have to look at the "new" and "create" actions for PostsController
+and try to do the same thing for SummariesController -->
+
+<h1><%= @summary.title %></h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <p><%= @summary.body %></p>
+  </div>
+  <div class="col-md-4">
+    <% if policy(@summary).edit? %>
+      <%= link_to "Edit", edit_topic_post_path(@topic, @post, @summary), class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
