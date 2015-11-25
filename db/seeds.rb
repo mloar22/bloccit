@@ -45,8 +45,8 @@ Comment.find_or_create_by(body: "this is a unique comment.", post: p)
 
 # Create an admin user
 admin = User.new(
-  name:     'Admin User',
-  email:    'mitchloarweb@gmail.com',
+  name:     'Admin',
+  email:    'admin@example.com',
   password: 'helloworld',
   role:     'admin'
 )
