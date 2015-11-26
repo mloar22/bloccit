@@ -1,21 +1,24 @@
 class SummariesController < ApplicationController
 
 # def new
-def new
 #    @topic = Topic.find(params[:topic_id])
-     @summary = Summary.find(params[:summary_id])
 #    @post = Post.new
-     @topic = Topic.new
 #    authorize @post
+# end
+def new
+     @summary = Summary.find(params[:summary_id])
+     @topic = Topic.new
      authorize @summary
 end
-# end
- def create
+
+
 # def create
-    @summary = Summary.find(params[:summary_id])
 #    @topic = Topic.find(params[:topic_id])
-    @topic = Topic.new(params.require(:topic).permit(:title, :body))
 #    @post = Post.new(params.require(:post).permit(:title, :body))
+
+ def create
+    @summary = Summary.find(params[:summary_id])
+    @topic = Topic.new(params.require(:topic).permit(:title, :body))
     @post.user = current_user
     @post.topic = @topic
      authorize @post
