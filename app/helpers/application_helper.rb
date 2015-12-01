@@ -1,12 +1,9 @@
 module ApplicationHelper
-
-  def my_name
-    content_tag "H3", "Rick Ross"
-  end
-
-  def any_helper_method
-    "Any Helper Method is a method that executes ruby code, but generally returns HTML.  
-    It can also be used for conditional logic in the view... and other stuff..."
-  end
-
+  def form_group_tag(errors, &block)
+       if errors.any?
+         content_tag :div, capture(&block), class: 'form-group has-error'
+       else
+         content_tag :div, capture(&block), class: 'form-group'
+       end
+     end
 end
