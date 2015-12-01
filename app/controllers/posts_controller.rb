@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
   def create
      @topic = Topic.find(params[:topic_id])
-     @post = Post.new(params.require(:post).permit(:title, :body))
+     @post = Post.new(post_params)
      @post.user = current_user
      @post.topic = @topic
      authorize @post
@@ -24,17 +24,22 @@ class PostsController < ApplicationController
        render :new
      end
    end
+
+
   def edit
      @topic = Topic.find(params[:topic_id])
      @post = Post.find(params[:id])
      authorize @post
-   end
-   def update
+  end
+
+  def update
       @topic = Topic.find(params[:topic_id])
       @post = Post.find(params[:id])
       authorize @post
 
-      if @post.update_attributes(params.require(:post).permit(:title, :body))
+      if @post.update_attributes(post_params)
+
+
         flash[:notice] = "Post was mega-updated."
         redirect_to [@topic, @post]
       else
@@ -42,4 +47,9 @@ class PostsController < ApplicationController
         render :new
       end
     end
+  private
+    def post_params
+      params.require(:post).permit(:title, :body)
+    end
+
 end
