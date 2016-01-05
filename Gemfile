@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 gem 'devise'
 gem 'redcarpet'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'will_paginate', '~> 3.0.5'
 
 group :production do
    gem 'pg'
