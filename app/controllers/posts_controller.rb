@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   include Pundit
   def show
-    @posts = Topic.paginate(page: params[:page], per_page: 3)
+    @posts = Topic.paginate(page: params[:page], per_page: 5)
     @topic = Topic.find(params[:topic_id])
-
-    authorize @post
+      authorize @post
   end
+
   def new
      @topic = Topic.find(params[:topic_id])
      @post = Post.new
@@ -17,6 +17,7 @@ class PostsController < ApplicationController
      @post.user = current_user
      @post.topic = @topic
      authorize @post
+
      if @post.save
        flash[:notice] = "Post was saved."
        redirect_to [@topic, @post]

@@ -19,7 +19,6 @@ class Post < ActiveRecord::Base
   end
 
   def markdown_title
-    #ends up returning html
     render_as_markdown(self.title)
   end
 

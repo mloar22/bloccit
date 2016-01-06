@@ -12,7 +12,7 @@ require 'faker'
  end
  users = User.all
 # Create Topics
-15.times do
+45.times do
   Topic.create!(
     name:         Faker::Lorem.sentence,
     description:  Faker::Lorem.paragraph
@@ -21,7 +21,7 @@ end
 topics = Topic.all
 
  #Posts
- 50.times do
+ 150.times do
    Post.create!(
      user:   users.sample,
      topic: topics.sample,

@@ -21,7 +21,6 @@ class PostPolicy < ApplicationPolicy
         return []
       end
 
-
       case user.role
       when "admin"
         scope.all
