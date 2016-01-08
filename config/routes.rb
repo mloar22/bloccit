@@ -7,9 +7,6 @@ Rails.application.routes.draw do
      resources :summaries
    end
 
-
-
-
    get 'about' => 'welcome#about'
 
    root to: 'welcome#index'

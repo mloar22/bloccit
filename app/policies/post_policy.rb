@@ -2,6 +2,11 @@ class PostPolicy < ApplicationPolicy
   def index?
    true
  end
+ 
+ def new
+  @post = Post.new
+  authorize @post
+end
 
  # Define a Pundit Scope sub-class in post_policy.rb to display different sets of
  # posts based on the role of the user. Admins and Moderators should see all posts,

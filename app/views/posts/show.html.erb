@@ -3,15 +3,20 @@
 <div class="row">
   <div class="col-md-8">
     <small>
-      <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
-       submitted <%= time_ago_in_words(@post.created_at) %> ago by
-       <%= @post.user.name %>
+         <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
+         submitted <%= time_ago_in_words(@post.created_at) %> ago by
+         <%= @post.user.name %>
     </small>
     <p><%= @post.markdown_body %></p>
+    <big>
+      <%= image_tag(@post.user.image.big.url) if @post.user.image? %>
+      submitted <%= time_ago_in_words(@post.created_at) %> ago by
+      <%= @post.user.name %>
+    </big>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
-      <%= link_to "Edit", edit_topic_post_path(@topic, @post, @summary), class: 'btn btn-success' %>
+      <%= link_to "Edit", edit_topic_post_path(@topic,@post,@summary), class: 'btn btn-success' %>
     <% end %>
   </div>
 </div>
