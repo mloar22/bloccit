@@ -34,7 +34,7 @@ topics = Topic.all
  # Create Comments
  100.times do
    Comment.create!(
-     # user: users.sample,   # we have not yet associated Users with Comments
+     user: users.sample,   # we have not yet associated Users with Comments
      post: posts.sample,
      body: Faker::Lorem.paragraph
    )
@@ -73,24 +73,7 @@ member.skip_confirmation!
 member.save!
 
 
-# Create a moderator
-moderator = User.new(
-  name:     'Moderator User',
-  email:    'moderator@example.com',
-  password: 'helloworld',
-  role:     'moderator'
-)
-moderator.skip_confirmation!
-moderator.save!
 
-# Create a member
-member = User.new(
-  name:     'Member User',
-  email:    'member@example.com',
-  password: 'helloworld'
-)
-member.skip_confirmation!
-member.save!
 
  puts "Seed finished"
  puts "#{User.count} users created"

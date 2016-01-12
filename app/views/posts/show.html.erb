@@ -15,3 +15,12 @@
     <% end %>
   </div>
 </div>
+
+
+
+<div class="row">
+  <%= form_for [@post.topic, @post, @post.comments.new] do |f| %>
+    Body: <%= f.text_field :body %>
+    <% f.submit %>
+  <% end %>
+</div>

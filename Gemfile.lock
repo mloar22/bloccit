@@ -315,6 +315,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   pg
+  pry
   pry-rails
   pundit
   quiet_assets

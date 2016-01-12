@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
   include Pundit
   def show
-    @posts = Topic.paginate(page: params[:page], per_page: 3)
+    @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
-
     authorize @post
   end
   def new
