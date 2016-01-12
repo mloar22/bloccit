@@ -1,5 +1,5 @@
 <%= @post.markdown_title %>
-
+<%= image_tag @post.image %>
 <div class="row">
   <div class="col-md-8">
     <small>
@@ -9,7 +9,7 @@
     </small>
     <p><%= @post.markdown_body %></p>
     <big>
-      <%= image_tag(@post.user.image.big.url) if @post.user.image? %>
+      <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by
       <%= @post.user.name %>
     </big>

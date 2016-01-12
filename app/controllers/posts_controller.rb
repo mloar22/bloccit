@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   include Pundit
 
   def show
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
       authorize @post
   end

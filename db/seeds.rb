@@ -1,4 +1,4 @@
-require 'faker'
+  require 'faker'
 
 # Create Users
  5.times do
@@ -44,17 +44,20 @@ p = Post.find_or_create_by(title: "This is a unique title.", body: "This is a un
 Comment.find_or_create_by(body: "this is a unique comment.", post: p)
 
 # Create an admin user
-admin = User.new(
-  name:     'Admin',
-  email:    'admin@example.com',
-  password: 'helloworld',
-  role:     'admin'
-)
-admin.skip_confirmation!
-admin.save!
+unless User.find_by_email("admin@example.com")
+  admin = User.new(
+    name:     'Admin',
+    email:    'admin@example.com',
+    password: 'helloworld',
+    role:     'admin'
+  )
+  admin.skip_confirmation!
+  admin.save!
+end
 
 # Create a moderator
-moderator = User.new(
+unless User.find_by_email("moderator@example.com")
+  moderator = User.new(
   name:     'Moderator User',
   email:    'moderator@example.com',
   password: 'helloworld',
@@ -62,8 +65,10 @@ moderator = User.new(
 )
 moderator.skip_confirmation!
 moderator.save!
+end
 
 # Create a member
+unless User.find_by_email("member@example.com")
 member = User.new(
   name:     'Member User',
   email:    'member@example.com',
@@ -71,26 +76,9 @@ member = User.new(
 )
 member.skip_confirmation!
 member.save!
+end
 
 
-# Create a moderator
-moderator = User.new(
-  name:     'Moderator User',
-  email:    'moderator@example.com',
-  password: 'helloworld',
-  role:     'moderator'
-)
-moderator.skip_confirmation!
-moderator.save!
-
-# Create a member
-member = User.new(
-  name:     'Member User',
-  email:    'member@example.com',
-  password: 'helloworld'
-)
-member.skip_confirmation!
-member.save!
 
  puts "Seed finished"
  puts "#{User.count} users created"
