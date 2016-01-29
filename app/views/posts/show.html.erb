@@ -18,12 +18,9 @@
 
 <!-- This is to show the comment  -->
 <div class="row">
-  <div class="col-md-12"
+  <div class="col-md-12">
    <h2> All of the Comments </h2>
-   <% @comments.each  do |comment| %>
-    <%= comment.body %>
-    <br/>
-   <% end %>
+   <%= render @comments %>
    <%= render 'comments/form', topic: @topic, comment: @new_comment, post: @post %>
   </div>
 </div>

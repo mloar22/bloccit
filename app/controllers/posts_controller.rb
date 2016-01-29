@@ -27,7 +27,6 @@ class PostsController < ApplicationController
      end
    end
 
-
   def edit
      @topic = Topic.find(params[:topic_id])
      @post = Post.find(params[:id])
@@ -40,7 +39,6 @@ class PostsController < ApplicationController
       authorize @post
 
       if @post.update_attributes(post_params)
-
 
         flash[:notice] = "Post was mega-updated."
         redirect_to [@topic, @post]
