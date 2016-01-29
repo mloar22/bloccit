@@ -16,11 +16,14 @@
   </div>
 </div>
 
-
-
+<!-- This is to show the comment  -->
 <div class="row">
-  <%= form_for [@post.topic, @post, @post.comments.new] do |f| %>
-    Body: <%= f.text_field :body %>
-    <% f.submit %>
-  <% end %>
+  <div class="col-md-12"
+   <h2> All of the Comments </h2>
+   <% @comments.each  do |comment| %>
+    <%= comment.body %>
+    <br/>
+   <% end %>
+   <%= render 'comments/form', topic: @topic, comment: @new_comment, post: @post %>
+  </div>
 </div>

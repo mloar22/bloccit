@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
-  
+
   mount_uploader :avatar, AvatarUploader
 
   devise :database_authenticatable, :registerable,
@@ -14,5 +14,4 @@ class User < ActiveRecord::Base
          def moderator?
            role == 'moderator'
          end
-
 end
