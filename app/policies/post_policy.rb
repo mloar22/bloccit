@@ -20,8 +20,6 @@ class PostPolicy < ApplicationPolicy
       if user == nil
         return []
       end
-
-
       case user.role
       when "admin"
         scope.all
@@ -31,6 +29,9 @@ class PostPolicy < ApplicationPolicy
         user.posts
         #scope allows members to see their own posts
       end
+    end
+    def destroy?
+      user.present? && (record.user == user || user.admin? || user.moderator?)
     end
   end
 

@@ -1,4 +1,12 @@
 
-Comment:
-<%= comment.body %>
  <br/>
+ <div class="media">
+   <div class="media-body">
+      <p><%= comment.body %></p>
+     <small>
+       <% if policy(comment).destroy? %>
+          <%= link_to "Delete", [@topic, @post, comment], method: :delete, class: 'btn btn-danger btn-xs' %>
+       <% end %>
+     </small>
+   </div>
+ </div>

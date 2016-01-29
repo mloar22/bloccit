@@ -31,6 +31,19 @@ class TopicsController < ApplicationController
      end
    end
 
+   def destroy
+      @topic = Topic.find(params[:id])
+
+      authorize @topic
+      if @topic.destroy
+        flash[:notice] = "\"#{@topic.name}\" Was stabbed like Qui Gon."
+        redirect_to topics_path
+      else
+        flash[:error] = "The Force helped the Topic miss your stab... Try again"
+        render :show
+      end
+    end
+
    def update
      @topic = Topic.new(topic_params)
      authorize @topic
