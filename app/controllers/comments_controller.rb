@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
     redirect_to :back
   end
+
   def destroy
 
     @topic = Topic.find(params[:topic_id])
@@ -24,4 +25,5 @@ class CommentsController < ApplicationController
           flash[:error] = "Hahaha. Try again. Didn't work. NanaBooBoo."
           redirect_to [@topic, @post]
         end
-end
+    end
+  end
