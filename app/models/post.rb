@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   has_one :summary
   default_scope { order('rank DESC') }
-  
+
 
 
    def up_votes
@@ -14,8 +14,15 @@ class Post < ActiveRecord::Base
      votes.where(value: -1).count
    end
    def points
-     up_votes - down_votes
+     votes.sum(:value)
    end
+   
+   def update_rank
+     age_in_days = (created_at - Time.new(1970,1,1)) / (60 * 60 * 24) # 1 day in seconds
+       new_rank = points + age_in_days
+
+       update_attribute(:rank, new_rank)
+     end
 
    def create_vote
      user.votes.create(value: 1, post: self)

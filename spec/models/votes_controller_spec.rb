@@ -1,18 +1,18 @@
- require 'rails_helper'
+require 'rails_helper'
 
- describe VotesController do
+describe VotesController do
 
-   include TestFactories
+  include TestFactories
+  Devise::TestHelpers
 
-   describe '#up_vote' do
-     it "adds an up-vote to the post" do
-       @user = authenticated_user
-       @post = associated_post
-       sign_in @user
+  describe '#up_vote' do
+    it "adds an up-vote to the post" do
+       request.env["HTTP_REFERER"] = '/'
+      sign_in @user
 
-       expect {
-         post( :up_vote, post_id: @post.id )
-       }.to change{ @post.up_votes }.by 1
-     end
-   end
- end
+      expect {
+        post( :up_vote, post_id: @post.id )
+      }.to change{ @post.up_votes }.by 1
+    end
+  end
+end
