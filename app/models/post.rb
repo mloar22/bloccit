@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   has_one :summary
   default_scope { order('rank DESC') }
+  
 
 
    def up_votes
@@ -16,13 +17,17 @@ class Post < ActiveRecord::Base
      up_votes - down_votes
    end
 
+   def create_vote
+     user.votes.create(value: 1, post: self)
+   end
+
    belongs_to :user
    belongs_to :topic
 
    validates :title, length: { minimum: 5 }, presence: true
    validates :body, length: { minimum: 20 }, presence: true
-   # validates :topic, presence: true
-   # validates :user, presence: true
+   validates :topic, presence: true
+   validates :user, presence: true
   def render_as_markdown(markdown)
       renderer = Redcarpet::Render::HTML.new # this is setup for redcarpet
       extensions = {fenced_code_blocks: true} #i dont know
