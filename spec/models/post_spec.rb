@@ -28,6 +28,7 @@ require 'rails_helper'
        end
      end
 
+
      describe '#create_vote' do
          it "generates an up-vote when explicitly called" do
           post = associated_post
