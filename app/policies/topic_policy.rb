@@ -1,5 +1,9 @@
 class TopicPolicy < ApplicationPolicy
 
+  def show?
+    record.public? || user.present?
+  end
+
   def index?
     true
   end
@@ -11,4 +15,5 @@ class TopicPolicy < ApplicationPolicy
   def update?
     create?
   end
+\
 end
