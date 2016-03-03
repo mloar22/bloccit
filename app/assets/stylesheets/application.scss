@@ -1,6 +1,7 @@
  @import "bootstrap-sprockets";
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap";
+
  .user-info {
   margin-top: 9px;
 }
@@ -12,6 +13,9 @@
 .vote-arrows {
    width: 40px;
    text-align: center;
+ }
+ .favorite {
+   margin-top: 20px;
  }
 
 /*
