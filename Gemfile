@@ -59,4 +59,6 @@ end
   gem 'bootstrap-sass'
   gem 'figaro', '1.0'
   gem 'pundit'
+  gem 'capybara'
+
 # end
