@@ -7,6 +7,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'pry'
+gem 'factory_girl_rails', '~> 4.0'
 
 group :production do
    gem 'pg'
