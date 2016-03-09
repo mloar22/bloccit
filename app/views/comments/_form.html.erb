@@ -1,7 +1,7 @@
 
  <% if current_user %>
     <h4>Comment:</h4>
-    <%= form_for [topic, post, comment] do |f| %>
+    <%= form_for [topic, post, comment] remote: true do |f| %>
       <%= f.label :body %>
       <%= f.text_field :body %>
       <%= f.submit %>

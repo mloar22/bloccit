@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     @comment.body = params[:comment][:body]
     @comment.user = current_user
     @comment.post_id = params[:post_id]
+    @new_comment = Comment.new
+
     @comment.save
 
     redirect_to :back
@@ -29,4 +31,10 @@ class CommentsController < ApplicationController
       format.html
       format.js
     end
+  end
+
+private
+
+  def comment_params
+    params.require(:comment).permit(:body)
   end
